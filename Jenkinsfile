@@ -10,7 +10,7 @@ pipeline {
 				script {
 					sh 'rm -rf *.war'
 					sh 'jar -cvf StudentSurvey.war -C web .'
-					sh 'docker build -t dheerajkrishna141/student_survey_645:latest .'
+					sh 'docker build -t dheerajkrishna141/student_survey_645:$BUILD_TIMESTAMP .'
 				}
 			}	
 		}
@@ -26,7 +26,7 @@ pipeline {
 		stage("Pushing Image to DockerHub") {
 			steps {
 				script {
-					sh 'docker push dheerajkrishna141/student_survey_645:latest'
+					sh 'docker push dheerajkrishna141/student_survey_645:$BUILD_TIMESTAMP'
 					}
 				}
 			}
@@ -34,7 +34,7 @@ pipeline {
 			
 		stage("Deploying to Rancher") {
 			steps {
-				sh 'kubectl set image deployment/studentsurvey container-0=dheerajkrishna141/student_survey_645:latest -n hw-1-namespace'
+				sh 'kubectl set image deployment/studentsurvey container-0=dheerajkrishna141/student_survey_645:$BUILD_TIMESTAMP -n hw-1-namespace'
 				sh 'kubectl rollout status deployment/studentsurvey -n hw-1-namespace'
 			}
 		}
