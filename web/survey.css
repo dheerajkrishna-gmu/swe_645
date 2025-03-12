@@ -1,0 +1,42 @@
+/* DHEERAJ KRISHNA NAGULA
+G01448319 */
+body{
+    background-color: #006633;
+}
+#main{
+    background-color: aliceblue;
+    border: 3px solid #FFCC33;
+    border-radius: 5px;
+}
+
+#heading{
+    background-color: #EFF0E7;
+    border: 5px solid #006633;
+    border-radius: 5px;
+}
+
+#foot{
+    background-image: url("assets/gmu_footer.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.form-group{
+    padding-bottom: 10px;
+}
+#button {
+    background-color: #FFCC33;
+    border: 2px solid black;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+
+  }
+
+  #greetcard{
+    background-color: #f6f7ee;
+  }
