@@ -2,6 +2,7 @@ pipeline {
 	agent any
 	environment {
 	DOCKERHUB_CREDENTIALS = credentials('docker-pass')
+	BUILD_TIMESTAMP = "${new Date().format("yyyyMMdd-HHmmss")}"
 	}
 	
 	stages {
