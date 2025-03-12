@@ -12,7 +12,7 @@ pipeline {
 					sh 'jar -cvf StudentSurvey.war -C web .'
 					sh 'docker build -t dheerajkrishna141/student_survey_645:latest .'
 				}
-			}
+			}	
 		}
 		
 		stage("Login to Docker Hub"){
@@ -34,7 +34,7 @@ pipeline {
 			
 		stage("Deploying to Rancher") {
 			steps {
-				sh 'kubectl set image deployment/studentsurvey studentsurvey=dheerajkrishna141/student_survey_645:latest -n hw-1-namespace'
+				sh 'kubectl set image deployment/studentsurvey container_0=dheerajkrishna141/student_survey_645:latest -n hw-1-namespace'
 			}
 		}
 		
